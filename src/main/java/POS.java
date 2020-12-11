@@ -11,8 +11,8 @@ public class POS {
 
     public POS(List<Table> tables) {
         this.tables = tables;
-        this.functions.add(new OrderFunction());
-        this.functions.add(new PaymentFunction());
+        this.functions.add(new OrderFunction(tables));
+        this.functions.add(new PaymentFunction(tables));
     }
 
     public Function selectFunction(int functionNumber) {
