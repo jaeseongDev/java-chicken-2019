@@ -1,4 +1,5 @@
 import domain.function.Function;
+import domain.function.TerminateFunction;
 import domain.menu.Menu;
 import domain.menu.MenuRepository;
 import domain.table.Table;
@@ -10,19 +11,18 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        OutputView.printFunctions();
-
         final List<Table> tables = TableRepository.tables();
         final List<Menu> menus = MenuRepository.menus();
         POS pos = new POS(tables, menus);
-        final int functionNumber = getInputFunctionNumber();
-        final Function selectedFunction = pos.selectFunction(functionNumber);
-
-        OutputView.printTables(tables);
-
-        final int tableNumber = Integer.parseInt(InputView.inputTableNumber());
-
-        OutputView.printMenus(menus);
+        while (true) {
+            OutputView.printFunctions();
+            final int functionNumber = getInputFunctionNumber();
+            final Function selectedFunction = pos.selectFunction(functionNumber);
+            selectedFunction.operateFunction();
+            if (selectedFunction.getClass() == TerminateFunction.class) {
+                break;
+            }
+        }
     }
 
     private static int getInputFunctionNumber() {

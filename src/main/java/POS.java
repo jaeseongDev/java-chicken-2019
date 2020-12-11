@@ -1,3 +1,4 @@
+import domain.function.TerminateFunction;
 import domain.menu.Menu;
 import domain.function.Function;
 import domain.table.Table;
@@ -14,9 +15,11 @@ public class POS {
         this.tables = tables;
         this.functions.add(new OrderFunction(tables, menus));
         this.functions.add(new PaymentFunction(tables));
+        this.functions.add(new TerminateFunction(tables));
     }
 
     public Function selectFunction(int functionNumber) {
-        return functions.get(functionNumber - 1);
+        int functionIndex = functionNumber - 1;
+        return functions.get(functionIndex);
     }
 }
