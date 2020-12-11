@@ -10,9 +10,9 @@ public class InputView {
         return scanner.nextLine();
     }
 
-    public static int inputTableNumber() {
+    public static String inputTableNumber() {
         System.out.println("## 주문할 테이블을 선택하세요.");
-        return scanner.nextInt();
+        return scanner.nextLine();
     }
 
     public static String inputMenuNumber() {

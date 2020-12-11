@@ -14,16 +14,16 @@ public class Application {
         OutputView.printFunctions();
 
         final List<Table> tables = TableRepository.tables();
-        POS pos = new POS(tables);
+        final List<Menu> menus = MenuRepository.menus();
+        POS pos = new POS(tables, menus);
         final int functionNumber = getInputFunctionNumber();
         final Function selectedFunction = pos.selectFunction(functionNumber);
 
 
         OutputView.printTables(tables);
 
-        final int tableNumber = InputView.inputTableNumber();
+        final int tableNumber = Integer.parseInt(InputView.inputTableNumber());
 
-        final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
     }
 
