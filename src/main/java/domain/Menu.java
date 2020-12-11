@@ -13,6 +13,10 @@ public class Menu {
         this.price = price;
     }
 
+    public boolean isSeletedMenu(final int menuNumber) {
+        return this.number == menuNumber;
+    }
+
     @Override
     public String toString() {
         return category + " " + number + " - " + name + " : " + price + "원";

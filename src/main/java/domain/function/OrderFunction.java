@@ -17,8 +17,18 @@ public class OrderFunction extends Function {
     public void operateFunction() {
         OutputView.printTables(tables);
         final int tableNumber = Integer.parseInt(InputView.inputTableNumber());
+        final Table selectedTable = tables.stream()
+            .filter(table -> table.isSelectedTable(tableNumber))
+            .findFirst()
+            .get();
 
         OutputView.printMenus(menus);
         final int menuNumber = Integer.parseInt(InputView.inputMenuNumber());
+        final Menu selectedMenu = menus.stream()
+            .filter(menu -> menu.isSeletedMenu(menuNumber))
+            .findFirst()
+            .get();
+        final int menuQuantity = Integer.parseInt(InputView.inputMenuQuantity());
+        selectedTable.addOrderMenu(selectedMenu, menuQuantity);
     }
 }
