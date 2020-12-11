@@ -14,6 +14,10 @@ public class Table {
         this.paymentStatus = true;
     }
 
+    public HashMap<Menu, MenuQuantity> getMenuStatus() {
+        return menuStatus;
+    }
+
     public void addOrderMenu(Menu menu, int menuCount) {
         setPaymentStatus();
         if (menuStatus.containsKey(menu)) {
