@@ -7,8 +7,6 @@ public class MenuQuantity {
 
     private final int menuQuantity;
 
-    public static final MenuQuantity ZERO = new MenuQuantity(ZERO_MENU_QUANTITY);
-
     public MenuQuantity(int menuQuantity) {
         validateMenuQuantity(menuQuantity);
         this.menuQuantity = menuQuantity;

@@ -1,7 +1,7 @@
 package domain.function;
 
 import domain.menu.Menu;
-import domain.Table;
+import domain.table.Table;
 import java.util.List;
 import view.InputView;
 import view.OutputView;

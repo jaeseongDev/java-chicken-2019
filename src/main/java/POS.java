@@ -1,6 +1,6 @@
 import domain.menu.Menu;
 import domain.function.Function;
-import domain.Table;
+import domain.table.Table;
 import domain.function.OrderFunction;
 import domain.function.PaymentFunction;
 import java.util.ArrayList;

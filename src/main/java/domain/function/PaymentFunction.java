@@ -1,6 +1,6 @@
 package domain.function;
 
-import domain.Table;
+import domain.table.Table;
 import domain.menu.Menu;
 import domain.menu.MenuQuantity;
 import java.util.HashMap;
@@ -24,5 +24,16 @@ public class PaymentFunction extends Function {
 
         final HashMap<Menu, MenuQuantity> orderedMenuStatus = selectedTable.getMenuStatus();
         OutputView.printOrderedMenuStatus(orderedMenuStatus);
+
+        final int paymentMethod = getInputPaymentMethod();
+    }
+
+    private int getInputPaymentMethod() {
+        try {
+            return Integer.parseInt(InputView.inputPaymentMethod());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getInputPaymentMethod();
+        }
     }
 }

@@ -1,6 +1,6 @@
 package domain.menu;
 
-import domain.Category;
+import domain.category.Category;
 
 public class Menu {
     private final int number;
