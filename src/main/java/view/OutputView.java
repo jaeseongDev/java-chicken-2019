@@ -79,6 +79,11 @@ public class OutputView {
             .println(menu.getName() + " " + menuQuantity.getMenuQuantity() + " " + menu.getPrice());
     }
 
+    public static void printFinalOrderAmount(double orderAmount) {
+        System.out.println("## 최종 결제할 금액");
+        System.out.println(orderAmount + "원");
+    }
+
     private static void printEmptyLine() {
         System.out.println();
     }
