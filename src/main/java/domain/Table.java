@@ -6,13 +6,16 @@ import java.util.HashMap;
 
 public class Table {
     private final int number;
+    private boolean paymentStatus;
     private HashMap<Menu, MenuQuantity> menuStatus = new HashMap<>();
 
     public Table(final int number) {
         this.number = number;
+        this.paymentStatus = true;
     }
 
     public void addOrderMenu(Menu menu, int menuCount) {
+        setPaymentStatus();
         if (menuStatus.containsKey(menu)) {
             menuStatus.put(menu, menuStatus.get(menu).addMenuQuantity(menuCount));
             return;
@@ -20,8 +23,16 @@ public class Table {
         menuStatus.put(menu, new MenuQuantity(menuCount));
     }
 
+    private void setPaymentStatus() {
+        paymentStatus = false;
+    }
+
     public boolean isSelectedTable(int tableNumber) {
         return this.number == tableNumber;
+    }
+
+    public boolean isPaymentCompleted() {
+        return paymentStatus;
     }
 
     @Override

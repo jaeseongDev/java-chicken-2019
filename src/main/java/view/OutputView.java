@@ -6,16 +6,19 @@ import domain.Table;
 import java.util.List;
 
 public class OutputView {
+
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
-    private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String COMPLETE_PAYMENT_BOTTOM_LINE = "└ ─ ┘";
+    private static final String NON_COMPLETE_PAYMENT_BOTTOM_LINE = "└ ₩ ┘";
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
         final int size = tables.size();
         printLine(TOP_LINE, size);
         printTableNumbers(tables);
-        printLine(BOTTOM_LINE, size);
+        printPaymentLine(tables, COMPLETE_PAYMENT_BOTTOM_LINE, NON_COMPLETE_PAYMENT_BOTTOM_LINE,
+            size);
     }
 
     public static void printMenus(final List<Menu> menus) {
@@ -36,6 +39,23 @@ public class OutputView {
             System.out.printf(TABLE_FORMAT, table);
         }
         System.out.println();
+    }
+
+    private static void printPaymentLine(final List<Table> tables, final String paymentLine,
+        final String nonPaymentLine, final int count) {
+        for (int index = 0; index < count; index++) {
+            selectPrintLine(tables, paymentLine, nonPaymentLine, index);
+        }
+        System.out.println();
+    }
+
+    private static void selectPrintLine(final List<Table> tables, final String paymentLine,
+        final String nonPaymentLine, final int index) {
+        if (tables.get(index).isPaymentCompleted()) {
+            System.out.print(paymentLine);
+            return;
+        }
+        System.out.print(nonPaymentLine);
     }
 
     public static void printFunctions() {
