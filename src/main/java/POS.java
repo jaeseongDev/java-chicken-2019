@@ -1,4 +1,4 @@
-import domain.Menu;
+import domain.menu.Menu;
 import domain.function.Function;
 import domain.Table;
 import domain.function.OrderFunction;

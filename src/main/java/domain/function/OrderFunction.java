@@ -1,6 +1,6 @@
 package domain.function;
 
-import domain.Menu;
+import domain.menu.Menu;
 import domain.Table;
 import java.util.List;
 import view.InputView;
@@ -28,7 +28,16 @@ public class OrderFunction extends Function {
             .filter(menu -> menu.isSeletedMenu(menuNumber))
             .findFirst()
             .get();
-        final int menuQuantity = Integer.parseInt(InputView.inputMenuQuantity());
-        selectedTable.addOrderMenu(selectedMenu, menuQuantity);
+        addSelectedOrderMenu(selectedTable, selectedMenu);
+    }
+
+    private void addSelectedOrderMenu(Table selectedTable, Menu selectedMenu) {
+        try {
+            final int menuQuantity = Integer.parseInt(InputView.inputMenuQuantity());
+            selectedTable.addOrderMenu(selectedMenu, menuQuantity);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            addSelectedOrderMenu(selectedTable, selectedMenu);
+        }
     }
 }

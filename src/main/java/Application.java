@@ -1,6 +1,6 @@
 import domain.function.Function;
-import domain.Menu;
-import domain.MenuRepository;
+import domain.menu.Menu;
+import domain.menu.MenuRepository;
 import domain.Table;
 import domain.TableRepository;
 import view.InputView;
