@@ -53,6 +53,12 @@ public class Table {
         return orderAmount.getOrderAmount(chickenAmount, paymentMethod);
     }
 
+    public void resetTable() {
+        orderAmount = OrderAmount.ZERO;
+        paymentStatus = true;
+        menuStatus = new HashMap<>();
+    }
+
     @Override
     public String toString() {
         return Integer.toString(number);
