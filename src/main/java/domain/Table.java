@@ -1,9 +1,12 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Table {
     private final int number;
+    private List<OrderedMenu> orderedMenus = new ArrayList<>();
 
     public Table(final int number) {
         this.number = number;
@@ -13,9 +16,29 @@ public class Table {
         return this.number;
     }
 
+    public void orderMenu(OrderedMenu menu) {
+        for (OrderedMenu orderedMenu : orderedMenus) {
+            if (orderedMenu.equals(menu)) {
+                orderedMenu.addCount(menu.getCount());
+                return;
+            }
+        }
+        this.orderedMenus.add(menu);
+    }
+
+    // TODO - 실제 완성 때에는 이 함수 사용하기
+//    @Override
+//    public String toString() {
+//        return Integer.toString(number);
+//    }
+
+    // TODO - 디버깅용
     @Override
     public String toString() {
-        return Integer.toString(number);
+        return "Table{" +
+            "number=" + number +
+            ", orderedMenus=" + orderedMenus +
+            '}';
     }
 
     @Override
