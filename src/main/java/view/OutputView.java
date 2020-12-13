@@ -46,7 +46,7 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void printEmptyLine() {
+    public static void printEmptyLine() {
         System.out.println();
     }
 }
