@@ -34,8 +34,12 @@ public enum MainFunction {
             // TODO - 디버깅용
             System.out.println("PAYMEMNT 함수 실행");
 
-//            OutputView.printTables(tables);
-//            final int tableNumber = InputView.inputTableNumber();
+            OutputView.printTables(tables);
+            final int tableNumber = getInputTableNumber();
+            Table table = TableRepository.findByNumber(tableNumber);
+            if (!table.isOrderedTable()) {
+                throw new IllegalArgumentException("[ERROR] 주문하지 않은 테이블이어서 결제가 불가능합니다.");
+            }
         }
     },
     QUIT("3") {
