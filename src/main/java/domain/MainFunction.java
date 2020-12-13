@@ -19,6 +19,8 @@ public enum MainFunction {
 
             OutputView.printMenus(menus);
             final int menuNumber =  getInputMenuNumber();
+
+
         }
     },
     PAYMENT("2") {
@@ -65,7 +67,7 @@ public enum MainFunction {
 
     private static int getInputTableNumber() {
         try {
-            String input = InputView.inputMenuNumber();
+            String input = InputView.inputTableNumber();
             int tableNumber = Integer.parseInt(input);
             TableRepository.findByNumber(tableNumber);
             return tableNumber;
