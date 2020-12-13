@@ -30,6 +30,7 @@ public class OutputView {
         for (final Menu menu : menus) {
             System.out.println(menu);
         }
+        printEmptyLine();
     }
 
     private static void printLine(final String line, final int count) {
