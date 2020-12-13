@@ -25,6 +25,10 @@ public class Menu {
         return this.price;
     }
 
+    public boolean isChicken() {
+        return category.getName().equals("치킨");
+    }
+
     @Override
     public String toString() {
         return category + " " + number + " - " + name + " : " + price + "원";

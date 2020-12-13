@@ -31,7 +31,17 @@ public class Table {
         this.orderedMenus.add(menu);
     }
 
-    public int getAmountPrice() {
+    public double getFinalAmountPrice(PaymentMethod method) {
+        double finalAmountPrice = getAmountPrice();
+        if (method.equals(PaymentMethod.CASH)) {
+            finalAmountPrice *= 0.95;
+        }
+        int discountPrice = (orderedChickenCount() / 10) * 10000;
+        finalAmountPrice -= discountPrice;
+        return finalAmountPrice;
+    }
+
+    private int getAmountPrice() {
         int sum = 0;
         for (OrderedMenu orderedMenu : orderedMenus) {
             sum += orderedMenu.getCount() *  orderedMenu.getMenu().getPrice();
@@ -41,6 +51,16 @@ public class Table {
 
     public boolean isOrderedTable() {
         return orderedMenus.size() > MENUS_SIZE_IN_NOT_ORDERED_TABLE;
+    }
+
+    public int orderedChickenCount() {
+        int sum = 0;
+        for (OrderedMenu orderedMenu : orderedMenus) {
+            if (orderedMenu.getMenu().isChicken()) {
+                sum += orderedMenu.getCount();
+            }
+        }
+        return sum;
     }
 
     // TODO - 실제 완성 때에는 이 함수 사용하기

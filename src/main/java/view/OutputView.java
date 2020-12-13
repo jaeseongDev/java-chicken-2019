@@ -79,14 +79,8 @@ public class OutputView {
         printEmptyLine();
     }
 
-    public static void printFinalAmountPrice(Table table, PaymentMethod method) {
-        int finalAmountPrice = table.getAmountPrice();
-        if (method.getNumber().equals(PaymentMethod.CARD)) {
-
-        }
-        if (method.getNumber().equals(PaymentMethod.CASH)) {
-
-        }
+    public static void printFinalAmountPrice(double price) {
+        System.out.println((int) price + "원");
     }
 
     private static void printEmptyLine() {

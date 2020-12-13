@@ -46,7 +46,8 @@ public enum MainFunction {
             String paymentMethodNumber = InputView.inputPaymentMethodNumber(table);
             PaymentMethod paymentMethod =
                 PaymentMethod.getPaymentMethodByNumber(paymentMethodNumber);
-
+            double finalAmountPrice = table.getFinalAmountPrice(paymentMethod);
+            OutputView.printFinalAmountPrice(finalAmountPrice);
         }
     },
     QUIT("3") {
