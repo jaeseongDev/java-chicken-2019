@@ -81,6 +81,7 @@ public class OutputView {
 
     public static void printFinalAmountPrice(double price) {
         System.out.println((int) price + "원");
+        printEmptyLine();
     }
 
     private static void printEmptyLine() {
