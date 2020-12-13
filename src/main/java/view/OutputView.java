@@ -1,6 +1,7 @@
 package view;
 
 import domain.Menu;
+import domain.OrderedMenu;
 import domain.Table;
 
 import java.util.List;
@@ -24,7 +25,6 @@ public class OutputView {
         final int size = tables.size();
         printLine(TOP_LINE, size);
         printTableNumbers(tables);
-//        printBottomLine(BOTTOM_LINE, size);
         printBottomLine(tables);
     }
 
@@ -62,6 +62,19 @@ public class OutputView {
 
     public static void printErrorMessage(IllegalArgumentException e) {
         System.out.println(e.getMessage());
+        printEmptyLine();
+    }
+
+    public static void printOrderedMenus(Table table) {
+        System.out.println("## 주문 내역");
+        System.out.println("메뉴 수량 금액");
+        List<OrderedMenu> orderedMenus = table.getOrderedMenus();
+        for (OrderedMenu orderedMenu : orderedMenus) {
+            String menuName = orderedMenu.getMenu().getName();
+            int menuCount = orderedMenu.getCount();
+            int price = menuCount * orderedMenu.getMenu().getPrice();
+            System.out.println(menuName + " " + menuCount + " " + price);
+        }
         printEmptyLine();
     }
 

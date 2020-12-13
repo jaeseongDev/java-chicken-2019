@@ -40,6 +40,8 @@ public enum MainFunction {
             if (!table.isOrderedTable()) {
                 throw new IllegalArgumentException("[ERROR] 주문하지 않은 테이블이어서 결제가 불가능합니다.");
             }
+
+            OutputView.printOrderedMenus(table);
         }
     },
     QUIT("3") {

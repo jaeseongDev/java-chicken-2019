@@ -18,6 +18,10 @@ public class OrderedMenu {
         return this.count;
     }
 
+    public Menu getMenu() {
+        return this.menu;
+    }
+
     public void addCount(int count) {
         int sum = this.count + count;
         if (sum < MIN_MENU_COUNT || sum > MAX_MENU_COUNT) {

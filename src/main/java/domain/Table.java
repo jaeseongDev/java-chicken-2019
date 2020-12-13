@@ -17,6 +17,10 @@ public class Table {
         return this.number;
     }
 
+    public List<OrderedMenu> getOrderedMenus() {
+        return orderedMenus;
+    }
+
     public void orderMenu(OrderedMenu menu) {
         for (OrderedMenu orderedMenu : orderedMenus) {
             if (orderedMenu.equals(menu)) {
