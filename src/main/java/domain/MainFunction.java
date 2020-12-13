@@ -9,9 +9,6 @@ public enum MainFunction {
     ORDER("1") {
         @Override
         public void operate(List<Table> tables) {
-            // TODO - 디버깅용
-            System.out.println(TableRepository.tables());
-
             final List<Menu> menus = MenuRepository.menus();
 
             OutputView.printTables(tables);
@@ -23,17 +20,11 @@ public enum MainFunction {
             Menu menu = MenuRepository.findByNumber(menuNumber);
             final int menuCount = getInputMenuCount();
             table.orderMenu(new OrderedMenu(menu, menuCount));
-
-            // TODO - 디버깅용
-            System.out.println(TableRepository.tables());
         }
     },
     PAYMENT("2") {
         @Override
         public void operate(List<Table> tables) {
-            // TODO - 디버깅용
-            System.out.println("PAYMEMNT 함수 실행");
-
             OutputView.printTables(tables);
             final int tableNumber = getInputTableNumber();
             Table table = TableRepository.findByNumber(tableNumber);
@@ -54,8 +45,6 @@ public enum MainFunction {
     QUIT("3") {
         @Override
         public void operate(List<Table> tables) {
-            // TODO - 디버깅용
-            System.out.println("프로그램 종료");
         }
     };
 

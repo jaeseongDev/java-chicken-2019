@@ -67,19 +67,9 @@ public class Table {
         orderedMenus = new ArrayList<>();
     }
 
-    // TODO - 실제 완성 때에는 이 함수 사용하기
-//    @Override
-//    public String toString() {
-//        return Integer.toString(number);
-//    }
-
-    // TODO - 디버깅용
     @Override
     public String toString() {
-        return "Table{" +
-            "number=" + number +
-            ", orderedMenus=" + orderedMenus +
-            '}';
+        return Integer.toString(number);
     }
 
     @Override
