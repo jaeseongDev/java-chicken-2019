@@ -93,6 +93,10 @@ public enum MainFunction {
         }
     }
 
+    public String getNumber() {
+        return number;
+    }
+
     public abstract void operate(List<Table> tables);
 }
 
