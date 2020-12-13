@@ -2,6 +2,7 @@ package view;
 
 import domain.Menu;
 import domain.OrderedMenu;
+import domain.PaymentMethod;
 import domain.Table;
 
 import java.util.List;
@@ -76,6 +77,16 @@ public class OutputView {
             System.out.println(menuName + " " + menuCount + " " + price);
         }
         printEmptyLine();
+    }
+
+    public static void printFinalAmountPrice(Table table, PaymentMethod method) {
+        int finalAmountPrice = table.getAmountPrice();
+        if (method.getNumber().equals(PaymentMethod.CARD)) {
+
+        }
+        if (method.getNumber().equals(PaymentMethod.CASH)) {
+
+        }
     }
 
     private static void printEmptyLine() {

@@ -42,6 +42,11 @@ public enum MainFunction {
             }
 
             OutputView.printOrderedMenus(table);
+
+            String paymentMethodNumber = InputView.inputPaymentMethodNumber(table);
+            PaymentMethod paymentMethod =
+                PaymentMethod.getPaymentMethodByNumber(paymentMethodNumber);
+
         }
     },
     QUIT("3") {

@@ -31,6 +31,14 @@ public class Table {
         this.orderedMenus.add(menu);
     }
 
+    public int getAmountPrice() {
+        int sum = 0;
+        for (OrderedMenu orderedMenu : orderedMenus) {
+            sum += orderedMenu.getCount() *  orderedMenu.getMenu().getPrice();
+        }
+        return sum;
+    }
+
     public boolean isOrderedTable() {
         return orderedMenus.size() > MENUS_SIZE_IN_NOT_ORDERED_TABLE;
     }
