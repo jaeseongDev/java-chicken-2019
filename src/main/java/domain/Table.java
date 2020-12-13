@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Table {
+    private static final int MENUS_SIZE_IN_NOT_ORDERED_TABLE = 0;
     private final int number;
     private List<OrderedMenu> orderedMenus = new ArrayList<>();
 
@@ -24,6 +25,10 @@ public class Table {
             }
         }
         this.orderedMenus.add(menu);
+    }
+
+    public boolean isOrderedTable() {
+        return orderedMenus.size() > MENUS_SIZE_IN_NOT_ORDERED_TABLE;
     }
 
     // TODO - 실제 완성 때에는 이 함수 사용하기
