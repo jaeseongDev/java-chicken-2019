@@ -63,6 +63,10 @@ public class Table {
         return sum;
     }
 
+    public void resetTable() {
+        orderedMenus = new ArrayList<>();
+    }
+
     // TODO - 실제 완성 때에는 이 함수 사용하기
 //    @Override
 //    public String toString() {

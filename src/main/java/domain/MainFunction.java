@@ -48,6 +48,7 @@ public enum MainFunction {
                 PaymentMethod.getPaymentMethodByNumber(paymentMethodNumber);
             double finalAmountPrice = table.getFinalAmountPrice(paymentMethod);
             OutputView.printFinalAmountPrice(finalAmountPrice);
+            TableRepository.resetTable(table);
         }
     },
     QUIT("3") {

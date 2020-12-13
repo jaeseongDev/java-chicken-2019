@@ -26,4 +26,12 @@ public class TableRepository {
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 테이블입니다."));
     }
+
+    public static void resetTable(Table inputTable) {
+        for (Table table : tables) {
+            if (table.equals(inputTable)) {
+                table.resetTable();
+            }
+        }
+    }
 }
