@@ -9,7 +9,7 @@ public class Machine {
             String functionNumber = InputView.inputFunctionNumber();
             MainFunction.getMainFunctionByNumber(functionNumber).operate();
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            OutputView.printErrorMessage(e);
             start();
         }
     }

@@ -46,7 +46,12 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printEmptyLine() {
+    public static void printErrorMessage(IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+        printEmptyLine();
+    }
+
+    private static void printEmptyLine() {
         System.out.println();
     }
 }
