@@ -17,6 +17,13 @@ public class InputView {
         return input;
     }
 
+    public static String inputMenuCount() {
+        System.out.println("## 메뉴의 수량을 입력하세요.");
+        String input = scanner.nextLine();
+        printEmptyLine();
+        return input;
+    }
+
     public static String inputFunctionNumber() {
         System.out.println("## 원하는 기능을 선택하세요.");
         String input = scanner.nextLine();

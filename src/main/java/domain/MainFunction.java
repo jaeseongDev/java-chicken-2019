@@ -18,8 +18,8 @@ public enum MainFunction {
             final int tableNumber = getInputTableNumber();
 
             OutputView.printMenus(menus);
-            final int menuNumber =  getInputMenuNumber();
-
+            final int menuNumber = getInputMenuNumber();
+            final int menuCount = getInputMenuCount();
 
         }
     },
@@ -41,6 +41,8 @@ public enum MainFunction {
         }
     };
 
+    private static final int MIN_MENU_COUNT = 1;
+    private static final int MAX_MENU_COUNT = 99;
     private String number;
 
     MainFunction(String number) {
@@ -71,6 +73,19 @@ public enum MainFunction {
             int tableNumber = Integer.parseInt(input);
             TableRepository.findByNumber(tableNumber);
             return tableNumber;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자만 입력하셔야 합니다.");
+        }
+    }
+
+    private static int getInputMenuCount() {
+        try {
+            String input = InputView.inputMenuCount();
+            int menuCount = Integer.parseInt(input);
+            if (menuCount < MIN_MENU_COUNT || menuCount > MAX_MENU_COUNT) {
+                throw new IllegalArgumentException("[ERROR] 주문의 수량은 1에서 99까지만 가능합니다.");
+            }
+            return menuCount;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[ERROR] 숫자만 입력하셔야 합니다.");
         }
