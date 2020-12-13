@@ -6,6 +6,9 @@ import java.util.Objects;
 
 public class Table {
     private static final int MENUS_SIZE_IN_NOT_ORDERED_TABLE = 0;
+    private static final double DISCOUNT_PERCENT = 0.95;
+    private static final int DISCOUNT_CHICKEN_UNIT = 10;
+    private static final int DISCOUNT_PRICE = 10000;
     private final int number;
     private List<OrderedMenu> orderedMenus = new ArrayList<>();
 
@@ -34,9 +37,9 @@ public class Table {
     public double getFinalAmountPrice(PaymentMethod method) {
         double finalAmountPrice = getAmountPrice();
         if (method.equals(PaymentMethod.CASH)) {
-            finalAmountPrice *= 0.95;
+            finalAmountPrice *= DISCOUNT_PERCENT;
         }
-        int discountPrice = (orderedChickenCount() / 10) * 10000;
+        int discountPrice = (orderedChickenCount() / DISCOUNT_CHICKEN_UNIT) * DISCOUNT_PRICE;
         finalAmountPrice -= discountPrice;
         return finalAmountPrice;
     }
